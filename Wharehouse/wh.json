@@ -1,0 +1,838 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "WMS_API_17 U7",
+      "version": "20220729185222"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8080/WMS_API_17U7JavaSql/WH/Remote/v2/Item"
+      }
+    ],
+    "paths": {
+      "/getById": {
+        "get": {
+          "tags": [
+            "WH.Remote.v2"
+          ],
+          "operationId": "WH.Remote.v2.Item.getById",
+          "summary": "getById",
+          "parameters": [
+            {
+              "name": "Code",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/getByIdOutput"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not found"
+            }
+          }
+        }
+      },
+      "/getIdByExternalCode": {
+        "get": {
+          "tags": [
+            "WH.Remote.v2"
+          ],
+          "operationId": "WH.Remote.v2.Item.getIdByExternalCode",
+          "summary": "getIdByExternalCode",
+          "parameters": [
+            {
+              "name": "Code",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/getIdByExternalCodeOutput"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not found"
+            }
+          }
+        }
+      },
+      "/getList": {
+        "get": {
+          "tags": [
+            "WH.Remote.v2"
+          ],
+          "operationId": "WH.Remote.v2.Item.getList",
+          "summary": "getList",
+          "parameters": [
+            {
+              "name": "Codes",
+              "in": "query",
+              "description": "col Item Externl Codes",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/getListOutput"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not found"
+            }
+          }
+        }
+      },
+      "/add": {
+        "post": {
+          "tags": [
+            "WH.Remote.v2"
+          ],
+          "operationId": "WH.Remote.v2.Item.add__post",
+          "summary": "add__post",
+          "requestBody": {
+            "required": false,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/add__postInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/add__postOutput"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not found"
+            }
+          }
+        }
+      },
+      "/addList": {
+        "post": {
+          "tags": [
+            "WH.Remote.v2"
+          ],
+          "operationId": "WH.Remote.v2.Item.addList__post",
+          "summary": "addList__post",
+          "requestBody": {
+            "required": false,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/addList__postInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/addList__postOutput"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not found"
+            }
+          }
+        }
+      },
+      "/update": {
+        "post": {
+          "tags": [
+            "WH.Remote.v2"
+          ],
+          "operationId": "WH.Remote.v2.Item.update__post",
+          "summary": "update__post",
+          "requestBody": {
+            "required": false,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/update__postInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/update__postOutput"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not found"
+            }
+          }
+        }
+      },
+      "/getLayoutRecordQuantity": {
+        "get": {
+          "tags": [
+            "WH.Remote.v2"
+          ],
+          "operationId": "WH.Remote.v2.Item.getLayoutRecordQuantity",
+          "summary": "getLayoutRecordQuantity",
+          "parameters": [
+            {
+              "name": "Code",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Name",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Batch",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Serial",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Slottype",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Slotname",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Containername",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Containerstatus",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Aislename",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Rackname",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Sectorcode",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Operationcode",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Warehousecode",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "integer"
+                  },
+                  "format": "int64"
+                }
+              }
+            },
+            "404": {
+              "description": "Not found"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "getByIdOutput": {
+          "properties": {
+            "Name": {
+              "type": "string"
+            },
+            "UnitMeasure_1": {
+              "type": "string"
+            },
+            "UnitMeasure_2": {
+              "type": "string"
+            },
+            "ConvertionRate": {
+              "type": "number",
+              "format": "double"
+            },
+            "ExpirationClassId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "OperationCode": {
+              "type": "string"
+            },
+            "ExpireControl": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "BatchControl": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "SerialControl": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "COT": {
+              "type": "string"
+            },
+            "ABC_Class": {
+              "type": "string"
+            },
+            "Presentations": {
+              "description": "col Item Presentation",
+              "$ref": "#/components/schemas/WH.Remote.v2.colItemPresentation"
+            },
+            "Barcodes": {
+              "description": "col Item Bar Code",
+              "$ref": "#/components/schemas/WH.Remote.v2.colItemBarCode"
+            },
+            "Messages": {
+              "description": "Messages",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/GeneXus.Common.Messages_Message"
+              }
+            },
+            "isOk": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        },
+        "getIdByExternalCodeOutput": {
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "Messages": {
+              "description": "Messages",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/GeneXus.Common.Messages_Message"
+              }
+            },
+            "isOk": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        },
+        "getListOutput": {
+          "properties": {
+            "Items": {
+              "description": "col Item",
+              "$ref": "#/components/schemas/WH.Remote.v2.colItem"
+            },
+            "Messages": {
+              "description": "Messages",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/GeneXus.Common.Messages_Message"
+              }
+            },
+            "isOk": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        },
+        "add__postOutput": {
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "Messages": {
+              "description": "Messages",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/GeneXus.Common.Messages_Message"
+              }
+            },
+            "isOk": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        },
+        "addList__postOutput": {
+          "properties": {
+            "Messages": {
+              "description": "Messages",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/GeneXus.Common.Messages_Message"
+              }
+            },
+            "isOk": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        },
+        "update__postOutput": {
+          "properties": {
+            "Messages": {
+              "description": "Messages",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/GeneXus.Common.Messages_Message"
+              }
+            },
+            "isOk": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        },
+        "add__postInput": {
+          "properties": {
+            "Code": {
+              "type": "string"
+            },
+            "Name": {
+              "type": "string"
+            },
+            "UnitMeasure_1": {
+              "type": "string"
+            },
+            "UnitMeasure_2": {
+              "type": "string"
+            },
+            "ConvertionRate": {
+              "type": "number",
+              "format": "double"
+            },
+            "ExpirationClassId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "OperationCode": {
+              "type": "string"
+            },
+            "ExpireControl": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "BatchControl": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "SerialControl": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "COT": {
+              "type": "string"
+            },
+            "ABC_Class": {
+              "type": "string"
+            },
+            "Presentations": {
+              "description": "col Item Presentation",
+              "$ref": "#/components/schemas/WH.Remote.v2.colItemPresentation"
+            },
+            "Barcodes": {
+              "description": "col Item Bar Code",
+              "$ref": "#/components/schemas/WH.Remote.v2.colItemBarCode"
+            }
+          }
+        },
+        "addList__postInput": {
+          "properties": {
+            "Items": {
+              "description": "col Item",
+              "$ref": "#/components/schemas/WH.Remote.v2.colItem"
+            }
+          }
+        },
+        "update__postInput": {
+          "properties": {
+            "Code": {
+              "type": "string"
+            },
+            "Name": {
+              "type": "string"
+            },
+            "UnitMeasure_1": {
+              "type": "string"
+            },
+            "UnitMeasure_2": {
+              "type": "string"
+            },
+            "ConvertionRate": {
+              "type": "number",
+              "format": "double"
+            },
+            "ExpirationClassId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "OperationCode": {
+              "type": "string"
+            },
+            "ExpireControl": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "BatchControl": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "SerialControl": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "COT": {
+              "type": "string"
+            },
+            "ABC_Class": {
+              "type": "string"
+            },
+            "Presentations": {
+              "description": "col Item Presentation",
+              "$ref": "#/components/schemas/WH.Remote.v2.colItemPresentation"
+            },
+            "Barcodes": {
+              "description": "col Item Bar Code",
+              "$ref": "#/components/schemas/WH.Remote.v2.colItemBarCode"
+            }
+          }
+        },
+        "WH.Remote.v2.colItemPresentation": {
+          "properties": {
+            "Presentation": {
+              "description": "Presentation",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/WH.Remote.v2.SDTItemPresentation"
+              }
+            }
+          }
+        },
+        "WH.Remote.v2.colItemBarCode": {
+          "properties": {
+            "Barcode": {
+              "description": "SDTItem Bar Code",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/WH.Remote.v2.SDTItemBarCode"
+              }
+            }
+          }
+        },
+        "GeneXus.Common.Messages_Message": {
+          "properties": {
+            "Id": {
+              "description": "Id",
+              "type": "string"
+            },
+            "Type": {
+              "description": "Type",
+              "type": "integer",
+              "format": "int32"
+            },
+            "Description": {
+              "description": "Description",
+              "type": "string"
+            }
+          }
+        },
+        "WH.Remote.v1.colItemExternlCodes": {
+          "properties": {
+            "ExternalCode": {
+              "description": "Item Operation External Id",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "WH.Remote.v2.colItem": {
+          "properties": {
+            "Item": {
+              "description": "SDTItem",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/WH.Remote.v2.SDTItem"
+              }
+            }
+          }
+        },
+        "WH.Remote.v2.SDTItem": {
+          "properties": {
+            "Code": {
+              "description": "Item Operation External Id",
+              "type": "string"
+            },
+            "Name": {
+              "description": "Item Name",
+              "type": "string"
+            },
+            "UnitMeasure_1": {
+              "description": "Item Secondary Unit Of Measurement",
+              "type": "string"
+            },
+            "UnitMeasure_2": {
+              "description": "Item Main Unit Of Measurement",
+              "type": "string"
+            },
+            "ConvertionRate": {
+              "description": "Item Convertion Factor",
+              "type": "number",
+              "format": "double"
+            },
+            "ExpirationClassId": {
+              "description": "Item Class",
+              "type": "integer",
+              "format": "int32"
+            },
+            "OperationCode": {
+              "description": "Operation Id.",
+              "type": "string"
+            },
+            "ExpireControl": {
+              "description": "Expire Control",
+              "type": "integer",
+              "format": "int32"
+            },
+            "BatchControl": {
+              "description": "Batch Control",
+              "type": "integer",
+              "format": "int32"
+            },
+            "SerialControl": {
+              "description": "Serial Control",
+              "type": "integer",
+              "format": "int32"
+            },
+            "COT": {
+              "description": "Cot",
+              "type": "string"
+            },
+            "ABC_Class": {
+              "description": "ABC_Class",
+              "type": "string"
+            },
+            "Presentations": {
+              "description": "col Item Presentation",
+              "$ref": "#/components/schemas/WH.Remote.v2.colItemPresentation"
+            },
+            "Barcodes": {
+              "description": "col Item Bar Code",
+              "$ref": "#/components/schemas/WH.Remote.v2.colItemBarCode"
+            }
+          }
+        },
+        "WH.Remote.v2.SDTItemBarCode": {
+          "properties": {
+            "Code": {
+              "description": "Code",
+              "type": "string"
+            },
+            "Type": {
+              "description": "Type",
+              "type": "integer",
+              "format": "int32"
+            },
+            "ReceptionAllowed": {
+              "description": "Reception Allowed",
+              "type": "integer",
+              "format": "int32"
+            },
+            "PackAllowed": {
+              "description": "Pack Allowed",
+              "type": "integer",
+              "format": "int32"
+            },
+            "PickAllowed": {
+              "description": "Pick Allowed",
+              "type": "integer",
+              "format": "int32"
+            },
+            "PackUnits": {
+              "description": "Pack Units",
+              "type": "number",
+              "format": "double"
+            }
+          }
+        },
+        "WH.Remote.v2.SDTItemPresentation": {
+          "properties": {
+            "StockMinimun": {
+              "description": "Item Barcode Stock Minimum",
+              "type": "number",
+              "format": "double"
+            },
+            "StockMaximun": {
+              "description": "Item Barcode Stock Maximum",
+              "type": "number",
+              "format": "double"
+            },
+            "SlotRelease": {
+              "description": "Item Barcode Picking Slot Release",
+              "type": "string"
+            },
+            "PickingReplenishmentPoint": {
+              "description": "Item Barcode Picking Replenishment Point",
+              "type": "number",
+              "format": "double"
+            },
+            "PalletUnit": {
+              "description": "Item Barcode Pallet Units",
+              "type": "integer",
+              "format": "int64"
+            },
+            "PalletLayers": {
+              "description": "Item Barcode Pallet Layers",
+              "type": "integer",
+              "format": "int64"
+            },
+            "PackWidth": {
+              "description": "Item Barcode Pack Width",
+              "type": "number",
+              "format": "double"
+            },
+            "PackWeight": {
+              "description": "Pack Weight",
+              "type": "number",
+              "format": "double"
+            },
+            "PackVolumen": {
+              "description": "Item Barcode Pack Volume",
+              "type": "number",
+              "format": "double"
+            },
+            "PackUnits": {
+              "description": "Item Barcode Pack Units",
+              "type": "integer",
+              "format": "int64"
+            },
+            "PackLength": {
+              "description": "Item Barcode Pack Length",
+              "type": "number",
+              "format": "double"
+            },
+            "PackHeigth": {
+              "description": "Item Barcode Pack Height",
+              "type": "number",
+              "format": "double"
+            }
+          }
+        }
+      }
+    }
+  }
