@@ -1,0 +1,36 @@
+{
+    "/getById": {
+        "get": {
+          "tags": [
+            "WH.Remote.v2"
+          ],
+          "operationId": "WH.Remote.v2.Item.getById",
+          "summary": "getById",
+          "parameters": [
+            {
+              "name": "Code",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/getByIdOutput"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not found"
+            }
+          }
+        }
+      }
+}
